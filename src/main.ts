@@ -7,7 +7,7 @@ async function bootstrap() {
 	app.use(cookieParser())
 	app.enableCors({
 		credentials: true,
-		origin: process.env.APP_URL,
+		origin: "*",
 	})
 	app.use((req, res, next) => {
 		res.header('Access-Control-Allow-Origin', '*')
