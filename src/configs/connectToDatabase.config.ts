@@ -6,7 +6,7 @@ export const connectToDatabase = async (
 ): Promise<TypeOrmModuleOptions> => ({
 	port: 5432,
 	type: 'postgres',
-	host: 'localhost',
+	host: await configService.get('DB_HOST'),
 	username: await configService.get('DB_USERNAME'),
 	password: await configService.get<string>('DB_PASSWORD'),
 	database: await configService.get<string>('DB_DATABASE'),
