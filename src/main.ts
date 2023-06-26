@@ -7,7 +7,10 @@ async function bootstrap() {
 	app.use(cookieParser())
 	app.setGlobalPrefix('api')
 	app.use((req, res, next) => {
-		res.header('Access-Control-Allow-Origin', process.env.APP_DOMEN)
+		res.header(
+			'Access-Control-Allow-Origin',
+			'venerable-cascaron-f5e9d5.netlify.app'
+		)
 		res.header(
 			'Access-Control-Allow-Methods',
 			'GET,PUT,POST,DELETE,OPTIONS,PATCH'
@@ -18,7 +21,7 @@ async function bootstrap() {
 		next()
 	})
 	app.enableCors({
-		origin: process.env.APP_DOMEN,
+		origin: 'venerable-cascaron-f5e9d5.netlify.app',
 		credentials: true,
 	})
 	await app.listen(4200)
