@@ -9,6 +9,15 @@ async function bootstrap() {
 		credentials: true,
 		origin: process.env.APP_URL,
 	})
+	app.use((req, res, next) => {
+		res.header('Access-Control-Allow-Origin', '*')
+		res.header(
+			'Access-Control-Allow-Methods',
+			'GET,PUT,POST,DELETE,OPTIONS,PATCH'
+		)
+		res.header('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
+		next()
+	})
 	app.setGlobalPrefix('api')
 	await app.listen(4200)
 }
