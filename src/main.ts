@@ -16,7 +16,7 @@ async function bootstrap() {
 			'GET,PUT,POST,DELETE,OPTIONS,PATCH'
 		)
 		res.header('Access-Control-Max-Age', 86400)
-		res.header('Access-Control-Allow-Headers', 'Content-Type')
+		res.header('Access-Control-Allow-Headers', 'X-Requested-With,Content-Type')
 		res.header('Access-Control-Allow-Credentials', 'true')
 		next()
 	})
