@@ -3,7 +3,7 @@ import { AppModule } from './app.module'
 import * as cookieParser from 'cookie-parser'
 
 async function bootstrap() {
-	const app = await NestFactory.create(AppModule)
+	const app = await NestFactory.create(AppModule, { cors: true })
 	app.use(cookieParser())
 	app.setGlobalPrefix('api')
 	app.use((req, res, next) => {
@@ -15,10 +15,10 @@ async function bootstrap() {
 		res.header('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
 		next()
 	})
-	app.enableCors({
-		origin: true,
-		credentials: true,
-	})
+	// app.enableCors({
+	// 	origin: true,
+	// 	credentials: true,
+	// })
 	await app.listen(4200)
 }
 bootstrap()
